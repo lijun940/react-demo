@@ -4,9 +4,12 @@ import Hello from './components/Hello'
 import Demo from './components/Demo'
 
 class App extends Component {
-  state = {
-    msg: 'hello',
-     count: 0
+  constructor() {
+    super()
+    this.state = {
+      msg: 'hello',
+      count: 0
+    }
   }
   render() {
     return (
