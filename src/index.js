@@ -1,28 +1,35 @@
 import { Component } from "react";
 import ReactDOM from "react-dom";
-import Hello from "./components/Hello";
-import Demo from "./components/Demo";
+import Hello from "./Hello";
+import Demo from "./Demo";
 
 class App extends Component {
   state = {
-    msg: "hello",
-    count: 0,
+    money: 100,
   };
+  buySth = () => {
+    this.setState({
+      money: this.state.money + 1,
+    });
+  };
+
   render() {
     return (
       <div>
-        <h1>我是跟组件</h1>
-        <div>{this.state.msg}</div>
-        <div>{this.state.count}</div>
-        <button onClick={this.clickFn}>+1</button>
+        <h1>我是app组件</h1>
+        <button onClick={this.buySth}>买烟</button>
+        <Demo
+          car="小黄车"
+          money={this.state.money}
+          user={{ name: "lj", age: 10 }}
+          fn={() => {
+            console.log("fn函数");
+          }}
+          content={<div>我是内容</div>}
+        />
+        <Hello car="小黄车" money={100} />
       </div>
     );
-  }
-  clickFn = () => {
-    console.log("点击事件", this);
-  };
-  mouseFn() {
-    console.log("鼠标进入事件");
   }
 }
 ReactDOM.render(<App />, document.querySelector("#root"));
