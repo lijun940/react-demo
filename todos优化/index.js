@@ -86,5 +86,13 @@ class App extends React.Component {
         </section>
     )
   }
+  componentDidUpdate() {
+    localStorage.setItem('todos', JSON.stringify(this.state.list))
+  }
+  componentDidMount() {
+    this.setState({
+      list: JSON.parse(localStorage.getItem('todos')) || []
+    })
+  }
 }
 ReactDOM.render(<App />, document.querySelector('#root'))
