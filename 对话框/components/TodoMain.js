@@ -57,7 +57,7 @@ export default class TodoMain extends Component {
         <input id="toggle-all" 
         className="toggle-all" 
         type="checkbox" 
-        checked={list.every(item => item.done)}
+        checked={list?.every(item => item.done)}
         onChange={this.handleChange}
       />
         <label for="toggle-all">Mark all as complete</label>
